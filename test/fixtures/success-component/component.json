@@ -4,6 +4,6 @@
     "index.js"
   ],
   "styles": [
-    "index.css"
+    "index.less"
   ]
 }

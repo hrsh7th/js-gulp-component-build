@@ -143,6 +143,11 @@ function scripts(file, option, configure, done) {
     if (err) return done(err);
 
     var scripts = Build(tree, option);
+    var plugins = scripts.scriptPlugins;
+    scripts.scriptPlugins = function(build, option) {
+      plugins.call(scripts, build, option);
+      configure(build, option);
+    };
     configure(scripts); // apply user customize.
     scripts.scripts(function(err, string) {
       if (err) return done(err);
@@ -164,7 +169,11 @@ function styles(file, option, configure, done) {
     if (err) return done(err);
 
     var styles = Build(tree, option);
-    configure(styles);  // apply user customize.
+    var plugins = styles.stylePlugins;
+    styles.stylePlugins = function(build, option) {
+      plugins.call(styles, build, option);
+      configure(build, option);
+    };
     styles.styles(function(err, string) {
       if (err) return done(err);
 

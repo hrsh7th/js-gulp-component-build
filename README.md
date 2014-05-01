@@ -19,11 +19,28 @@ gulp.task('compile:scripts', function() {
 
 gulp.task('compile:styles', function() {
   gulp.src('test/fixtures/success-component/component.json')
-    .pipe(component.styles({ install: true }))
+    .pipe(component.styles({ install: true }, function(styles, option) {
+      styles.use('styles', require('component-builder-less')({}));
+    }))
     .pipe(rename('components.css'))
     .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('default', ['compile:scripts', 'compile:styles']);
+
 ```
+
+api
+-----------------------
+### component.scripts(option, configureFunction) #=> gulp friendly stream.
+- option
+  - ```component/component-build```'s argument.
+- configureFunction
+  - first argument
+    - ```component/component-builder2``` instance. can use to adding some plugins if you want.
+  - second argument
+    - ```option```.
+
+### component.styles(option, configureFunction) #=> gulp friendly stream.
+- same to ```component.scripts```
 

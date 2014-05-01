@@ -1,6 +1,6 @@
 {
   "name": "gulp-component-build",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "gulp plugin for build component.",
   "main": "index.js",
   "directories": {
@@ -13,9 +13,10 @@
     "through2": "^0.4.1"
   },
   "devDependencies": {
-    "mocha": "^1.18.2",
+    "component-builder-less": "0.0.2",
     "gulp": "^3.6.2",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "mocha": "^1.18.2"
   },
   "scripts": {
     "test": "mocha"

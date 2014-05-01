@@ -6,7 +6,7 @@ describe('success case', function() {
   it('scripts', function(done) {
     var stream = component.scripts();
     stream.on('data', function(file) {
-      var contents = file.contents.toString().replace(/\r|\n/, '');
+      var contents = file.contents.toString().replace(/\r|\n/g, '');
       assert.ok(contents.match(/require\.register/));
       assert.ok(contents.match(/function.*Test.*{/));
       done();
@@ -20,10 +20,12 @@ describe('success case', function() {
   });
 
   it('styles', function(done) {
-    var stream = component.styles();
+    var stream = component.styles({}, function(styles, option) {
+      styles.use('styles', require('component-builder-less')({}));
+    });
     stream.on('data', function(file) {
-      var contents = file.contents.toString().replace(/\r|\n/, '');
-      assert.ok(contents.match(/body\s*{\s*margin:0;\s*}/));
+      var contents = file.contents.toString().replace(/\r|\n/g, '');
+      assert.ok(contents.match(/body\s*{\s*margin: 0;\s*}/));
       done();
     });
     stream.write(new File({
@@ -51,7 +53,9 @@ describe('failure case', function() {
   });
 
   it('styles', function(done) {
-    var stream = component.styles();
+    var stream = component.styles({}, function(styles, option) {
+      styles.use('styles', require('component-builder-less')({}));
+    });
     stream.on('error', function(err) {
       assert.equal(err.message, 'failed to read "failure-component"\'s file "index.css"');
       done();

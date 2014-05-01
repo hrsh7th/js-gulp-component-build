@@ -11,7 +11,9 @@ gulp.task('compile:scripts', function() {
 
 gulp.task('compile:styles', function() {
   gulp.src('test/fixtures/success-component/component.json')
-    .pipe(component.styles({ install: true }))
+    .pipe(component.styles({ install: true }, function(styles, option) {
+      styles.use('styles', require('component-builder-less')({}));
+    }))
     .pipe(rename('components.css'))
     .pipe(gulp.dest('public/css'));
 });
