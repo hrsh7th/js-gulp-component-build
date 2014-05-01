@@ -35,6 +35,23 @@ describe('success case', function() {
     }));
     stream.end();
   });
+
+  it('files', function(done) {
+    var stream = component.files({}, function(build, option) {
+      build.fns.images.forEach(function(fn) {
+        build.use('some-ext', fn);
+      });
+    });
+    stream.on('end', function() {
+      done();
+    });
+    stream.write(new File({
+      cwd: __dirname,
+      path: __dirname + '/fixtures/success-component/component.json',
+      contents: new Buffer('')
+    }));
+    stream.end();
+  });
 });
 
 describe('failure case', function() {
@@ -58,6 +75,24 @@ describe('failure case', function() {
     });
     stream.on('error', function(err) {
       assert.equal(err.message, 'failed to read "failure-component"\'s file "index.css"');
+      done();
+    });
+    stream.write(new File({
+      cwd: __dirname,
+      path: __dirname + '/fixtures/failure-component/component.json',
+      contents: new Buffer('')
+    }));
+    stream.end();
+  });
+
+  it('files', function(done) {
+    var stream = component.files({}, function(build, option) {
+      build.fns.images.forEach(function(fn) {
+        build.use('some-ext', fn);
+      });
+    });
+    stream.on('error', function(err) {
+      assert.ok(err.message.match(/index..*?\" does not exist/));
       done();
     });
     stream.write(new File({

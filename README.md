@@ -26,6 +26,17 @@ gulp.task('compile:styles', function() {
     .pipe(gulp.dest('public/css'));
 });
 
+gulp.task('compile:files', function() {
+  gulp.src('test/fixtures/success-component/component.json')
+    .pipe(component.files({ install: true }, function(files, option) {
+      // add to copy ext.
+      build.fns.images.forEach(function(fn) {
+        build.use('some-ext1', fn);
+        build.use('some-ext2', fn);
+      });
+    }));
+});
+
 gulp.task('default', ['compile:scripts', 'compile:styles']);
 
 ```
@@ -44,3 +55,5 @@ api
 ### component.styles(option, configureFunction) #=> gulp friendly stream.
 - same to ```component.scripts```
 
+### component.styles(option, configureFunction) #=> gulp friendly stream.
+- same to ```component.scripts```

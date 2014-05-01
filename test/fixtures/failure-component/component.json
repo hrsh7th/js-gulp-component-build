@@ -5,5 +5,11 @@
   ],
   "styles": [
     "index.css"
+  ],
+  "images": [
+    "index.png"
+  ],
+  "some-ext": [
+    "index.some-ext"
   ]
 }
