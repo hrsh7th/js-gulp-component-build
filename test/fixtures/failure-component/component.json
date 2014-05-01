@@ -1,0 +1,9 @@
+{
+  "name": "failure-component",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "index.css"
+  ]
+}

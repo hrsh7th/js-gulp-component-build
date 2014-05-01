@@ -1,0 +1,38 @@
+{
+  "name": "gulp-component-build",
+  "version": "0.0.1",
+  "description": "gulp plugin for build component.",
+  "main": "index.js",
+  "directories": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "component-build": "^1.2.0",
+    "component-resolver": "^1.1.1",
+    "gulp-util": "^2.2.14",
+    "through2": "^0.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "gulp": "^3.6.2",
+    "gulp-rename": "^1.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hrsh7th/js-gulp-component-build.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "component",
+    "build"
+  ],
+  "author": "hrsh7th",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrsh7th/js-gulp-component-build/issues"
+  },
+  "homepage": "https://github.com/hrsh7th/js-gulp-component-build"
+}

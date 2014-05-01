@@ -1,0 +1,9 @@
+{
+  "name": "success-component",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "index.css"
+  ]
+}

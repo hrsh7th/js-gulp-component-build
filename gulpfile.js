@@ -1,11 +1,3 @@
-js-gulp-component-build
-=======================
-
-gulp plugin to build component.
-
-example
------------------------
-```js
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var component = require('./index');
@@ -25,5 +17,4 @@ gulp.task('compile:styles', function() {
 });
 
 gulp.task('default', ['compile:scripts', 'compile:styles']);
-```
 
