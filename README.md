@@ -1,10 +1,10 @@
-js-gulp-component-build
+gulp-component-build.
 =======================
 
 gulp plugin to build component.
 
-example
------------------------
+Example
+=======================
 ```js
 var gulp = require('gulp');
 var rename = require('gulp-rename');
@@ -43,7 +43,7 @@ gulp.task('default', ['compile:scripts', 'compile:styles']);
 
 api
 -----------------------
-### component.scripts(option, configureFunction) #=> gulp friendly stream.
+### component.scripts(option, configureFunction) #=> stream.
 - option
   - ```component/component-build```'s argument.
 - configureFunction
@@ -52,8 +52,9 @@ api
   - second argument
     - ```option```.
 
-### component.styles(option, configureFunction) #=> gulp friendly stream.
+### component.styles(option, configureFunction) #=> stream.
 - same to ```component.scripts```
 
-### component.styles(option, configureFunction) #=> gulp friendly stream.
+### component.files(option, configureFunction) #=> stream.
 - same to ```component.scripts```
+
