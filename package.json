@@ -1,6 +1,6 @@
 {
   "name": "gulp-component-build",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "gulp plugin for build component.",
   "homepage": "https://github.com/hrsh7th/js-gulp-component-build",
   "repository": {
