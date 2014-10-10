@@ -28,7 +28,7 @@ gulpComponentBuild.scripts = function(option, configure) {
     var next = new gutil.File({
       cwd: file.base,
       base: file.base,
-      path: file.base + 'build.css' // use gulp-rename if you want change this.
+      path: file.base + 'build.js' // use gulp-rename if you want change this.
     });
 
     // for empty.
